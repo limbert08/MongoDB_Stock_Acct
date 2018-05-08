@@ -74,7 +74,9 @@ app.get("/weight", function(req, res) {
   });
 });
 
+var PORT = process.env.PORT || 3000;
+
 // Set the app to listen on port 3000
-app.listen(3000, function() {
+app.listen(PORT, function() {
   console.log("App running on port 3000!");
 });
