@@ -10,11 +10,11 @@ app.use(express.static("public"));
 
 // Database configuration
 // Save the URL of our database as well as the name of our collection
-var databaseUrl = "acctsdb";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/acctsdb";
 var collections = ["transactions"];
 
 // Use mongojs to hook the database to the db variable
-var db = mongojs(databaseUrl, collections);
+var db = mongojs(MONGODB_URI, collections);
 
 // This makes sure that any errors are logged if mongodb runs into an issue
 db.on("error", function(error) {
